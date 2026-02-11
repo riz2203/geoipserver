@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  geoip-updater:
+    build: .
+    container_name: geoip-updater
+    restart: unless-stopped
+    environment:
+      - MAXMIND_ACCOUNT_ID=YOUR_ACCOUNT_ID
+      - MAXMIND_LICENSE_KEY=YOUR_LICENSE_KEY
+      - TZ=America/New_York
+      # Optional: Change database URL for different databases
+      # - MAXMIND_DATABASE_URL=https://download.maxmind.com/geoip/databases/GeoLite2-City/download?suffix=tar.gz
+    volumes:
+      - geoip-data:/var/lib/geoip
+    # Expose the database file to host
+      - ./:/var/lib/geoip
+
+volumes:
+  geoip-data:

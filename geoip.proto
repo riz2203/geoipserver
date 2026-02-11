@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package geoipservice;
+
+option go_package = "geoipserver/pb;pb";
+
+service GeoIPService {
+  rpc Check(CheckRequest) returns (CheckResponse);
+}
+
+message CheckRequest {
+  string ip = 1;
+  repeated string countries = 2;
+}
+
+message CheckResponse {
+  bool match = 1;
+}
