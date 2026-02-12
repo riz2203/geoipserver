@@ -51,7 +51,7 @@ GeoIPServer is a Go-based microservice that provides country lookup for IP addre
 ## Key Components
 - **Database Reload**: Watches for file changes and reloads DB automatically.
 - **Proto**: `geoip.proto` defines gRPC service and messages.
-- **Makefile**: Handles build, proto generation, test, and clean.
+- **Makefile**: Handles build, proto generation, test, cluster setup, deployment, MaxMind DB update and clean.
 
 ## Error Handling
 - Invalid IPs, missing DB, or lookup failures return appropriate error messages and HTTP status codes.
