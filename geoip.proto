@@ -9,10 +9,10 @@ service GeoIPService {
 }
 
 message CheckRequest {
-  string ip = 1;
-  repeated string countries = 2;
+  string ip = 1;                  //The IP address to validate
+  repeated string countries = 2;  //List of allowed countries
 }
 
 message CheckResponse {
-  bool match = 1;
+  bool match = 1;               //Whether the IP is in the allowed list
 }

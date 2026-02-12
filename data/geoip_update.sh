@@ -1,14 +1,9 @@
 #!/bin/bash
-
 #############################################
 # MaxMind GeoIP Database Download Script
 # Downloads database only when updated
 #############################################
 
-# Configuration
-export MAXMIND_ACCOUNT_ID="<Add you MAXMIND account ID>"
-export MAXMIND_LICENSE_KEY="<Add your MAXMIND Licesnse key>"
-export GEOIP_DIR="./"
 
 ##############################################################
 # Configuration - Get from environment variables with defaults

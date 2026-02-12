@@ -1,0 +1,14 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+  - role: control-plane
+    extraPortMappings:
+      - containerPort: 30080   # HTTP 
+        hostPort: 30080
+        protocol: TCP
+      - containerPort: 30051   # gRPC
+        hostPort: 30051
+        protocol: TCP
+    extraMounts:
+      - hostPath: /Users/rizwank/AVOXI/tmp/geoipserver/data
+        containerPath: /data

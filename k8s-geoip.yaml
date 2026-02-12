@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: geoipserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: geoipserver
+  template:
+    metadata:
+      labels:
+        app: geoipserver
+    spec:
+      containers:
+        - name: geoipserver
+          image: geoipserver:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+            - containerPort: 50051
+          volumeMounts:
+            - name: geoip-data
+              mountPath: /app/data
+              readOnly: true
+      volumes:
+        - name: geoip-data
+          hostPath:
+            path: /data
+            type: Directory
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: geoipserver
+spec:
+  type: NodePort
+  selector:
+    app: geoipserver
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+      nodePort: 30080
+
+    - name: grpc
+      port: 50051
+      targetPort: 50051
+      nodePort: 30051
+

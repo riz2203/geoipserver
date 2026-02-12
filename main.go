@@ -28,7 +28,9 @@ func main() {
     server.StartAutoReload(dbPath, timeout)
 
     // Set up HTTP handler for /check endpoint
-    http.HandleFunc("/check", server.CheckHandler)
+    mux := http.NewServeMux()
+    mux.HandleFunc("/check", server.CheckHandler) //default API endpoint without versioning
+    mux.HandleFunc("/v1/check", server.CheckHandler) // version v1 of the API
 
     // Start gRPC server on port 50051
     go func() {
@@ -46,7 +48,7 @@ func main() {
     }()
 
     log.Println("Server running on http://localhost:8080")
-    err = http.ListenAndServe(":8080", nil)
+    err = http.ListenAndServe(":8080", mux)
     if err != nil {
         log.Fatalf("server error: %v", err)
     }
