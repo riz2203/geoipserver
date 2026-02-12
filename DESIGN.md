@@ -59,6 +59,7 @@ GeoIPServer is a Go-based microservice that provides country lookup for IP addre
 ## Testing
 - Unit tests for all core logic, including negative and corner cases.
 - Tests are run with `make test` and log pass messages.
+- End to end test can be run using `make test-http` and `make test-grpc`
 
 ## Extensibility
 - Easily add more endpoints or enrich response data.
