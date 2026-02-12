@@ -41,7 +41,7 @@ GeoIPServer is a Go-based microservice that provides country lookup for IP addre
 
 ## Data Flow
 1. **Startup**: Loads GeoLite2 database and starts auto-reload goroutine.
-2. **HTTP Request**: `/check` endpoint receives JSON with IP and country list.
+2. **HTTP Request**: `/check` or `/v1/check` endpoint receives JSON with IP and country list.
    - Decodes request.
    - Looks up country for IP.
    - Checks if country matches any in list.
