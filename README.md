@@ -378,6 +378,3 @@ make test-http
 ```bash
 make test-grpc
 ```
-
----
-```
