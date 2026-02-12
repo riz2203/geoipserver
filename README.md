@@ -380,8 +380,4 @@ make test-grpc
 ```
 
 ---
-
-## 📜 License
-
-MIT License. See `LICENSE` file for details.
 ```
