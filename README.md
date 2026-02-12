@@ -385,14 +385,3 @@ make test-grpc
 
 MIT License. See `LICENSE` file for details.
 ```
-
----
-
-If you want, I can also generate:
-
-- A **badges section** (Go version, build status, license, Docker pulls)  
-- A **Contributing** section  
-- A **Performance Benchmarks** section  
-- A **Helm chart README**  
-
-Just tell me what direction you want to take this project next.
