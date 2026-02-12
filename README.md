@@ -96,7 +96,7 @@ Default ports:
 #### **HTTP Example**
 
 ```bash
-curl -X POST http://localhost:8080/check \
+curl -X POST http://localhost:8080/v1/check \
   -H "Content-Type: application/json" \
   -d '{"countries":["United States","Canada"],"ip":"9.9.9.9"}'
 ```
